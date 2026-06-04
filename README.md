@@ -2,7 +2,7 @@
 
 > Site de apresentação pessoal com design dark, sidebar de navegação, seção de projetos do GitHub e stats em tempo real via API.
 
-🔗 **[Ver online](https://julio-lopes.github.io/portfolio)
+🔗 [Ver](https://julio-lopes.github.io/portfolio)
 
 ---
 
