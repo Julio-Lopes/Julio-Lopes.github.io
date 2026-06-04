@@ -441,6 +441,8 @@ ul { list-style: none; }
     border-bottom: 1px solid var(--border);
   }
 
+  .sidebar__bottom{ display: none; }
+
   .sidebar__nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
   .sidebar__bio { display: none; }
 

@@ -8,8 +8,8 @@ export function Sidebar() {
           <h1 class="sidebar__name">Julio Cesar Lopes</h1>
           <p class="sidebar__role">Desenvolvedor Frontend | Salesforce Commerce Cloud (SFCC) | React | Next.js | TypeScript | E-commerce</p>
           <p class="sidebar__bio">
-            Especialista em e-commerce, React e Salesforce Commerce Cloud.
-            Full Stack quando necessário. Inglês avançado. Oracle Cloud certificado.
+            Desenvolvedor Frontend com experiência no desenvolvimento de soluções para e-commerce, atuando com React, Next.js, TypeScript, JavaScript, HTML, CSS e Salesforce Commerce Cloud (SFCC).
+            Também possuo experiência em desenvolvimento backend com Java (Spring Boot) e PHP, além de conhecimentos em computação em nuvem e ambientes multi-cloud.
           </p>
         </div>
 
