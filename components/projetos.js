@@ -3,13 +3,13 @@ const COMMITS_MOCK = '320+'
 
 const repos = [
   {
-    nome:  'Sistema-De-Gestao-Controle-De-Gastos',
-    desc:  'Sistema web fullstack para gerenciamento de despesas pessoais e categorização de transações financeiras.',
+    nome:  'Pokedex',
+    desc:  'Pokédex interativa desenvolvida com React e TypeScript para consulta de informações de Pokémon em tempo real utilizando a PokéAPI.',
     lang:  'React/TypeScript',
     cor:   '#3178c6',
     stars: 0,
-    url:   'https://github.com/Julio-Lopes/Sistema-De-Gestao-Controle-De-Gastos',
-    tags:  ['React', '.NET', 'MySQL', 'JWT'],
+    url:   'https://github.com/Julio-Lopes/Pokedex-React',
+    tags:  ['React', 'TypeScript', 'PokéAPI']
   },
   {
     nome:  'Know-Your-Fan',
@@ -20,6 +20,15 @@ const repos = [
     url:   'https://github.com/Julio-Lopes/Know-Your-Fan',
     tags:  ['Python', 'Streamlit', 'Gemini', 'PostgreSQL'],
   },
+  {
+    nome:  'Sistema-De-Gestao-Controle-De-Gastos',
+    desc:  'Sistema web fullstack para gerenciamento de despesas pessoais e categorização de transações financeiras.',
+    lang:  'React/TypeScript',
+    cor:   '#3178c6',
+    stars: 0,
+    url:   'https://github.com/Julio-Lopes/Sistema-De-Gestao-Controle-De-Gastos',
+    tags:  ['React', '.NET', 'MySQL', 'JWT'],
+  }
 ]
 
 // ─── Busca stats na API do GitHub ──────────────────────────────────────
