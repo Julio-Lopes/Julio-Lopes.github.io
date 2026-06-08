@@ -3,6 +3,15 @@ const COMMITS_MOCK = '320+'
 
 const repos = [
   {
+    nome:  'ecommerce-spring-boot-react',
+    desc:  'E-commerce fullstack com autenticação JWT, catálogo com busca e filtro, carrinho persistente, painel admin com dashboard e e-mails transacionais.',
+    lang:  'Java',
+    cor:   '#b07219',
+    stars: 0,
+    url:   'https://github.com/Julio-Lopes/ecommerce-spring-boot-react',
+    tags:  ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'Docker']
+  },
+  {
     nome:  'Pokedex',
     desc:  'Pokédex interativa desenvolvida com React e TypeScript para consulta de informações de Pokémon em tempo real utilizando a PokéAPI.',
     lang:  'React/TypeScript',
