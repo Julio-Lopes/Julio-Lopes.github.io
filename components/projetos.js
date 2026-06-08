@@ -3,7 +3,7 @@ const COMMITS_MOCK = '320+'
 
 const repos = [
   {
-    nome:  'ecommerce-spring-boot-react',
+    nome:  'Ecommerce-Spring-Boot-React',
     desc:  'E-commerce fullstack com autenticação JWT, catálogo com busca e filtro, carrinho persistente, painel admin com dashboard e e-mails transacionais.',
     lang:  'Java',
     cor:   '#b07219',
