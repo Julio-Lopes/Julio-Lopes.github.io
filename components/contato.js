@@ -1,8 +1,8 @@
 // ─── Dados ────────────────────────────────────────────────────────────────────
 const contatos = [
   { label: 'github.com/Julio-Lopes', href: 'https://github.com/Julio-Lopes', icon: 'ti-brand-github' },
-  { label: 'linkedin.com/in/julio',  href: 'https://linkedin.com',           icon: 'ti-brand-linkedin' },
-  { label: 'julio@email.com',        href: 'mailto:julio@email.com',         icon: 'ti-mail' },
+  { label: 'linkedin.com/julio',  href: 'https://www.linkedin.com/in/julio-cesar-ribeiro-lopes-0039ba244/', icon: 'ti-brand-linkedin' },
+  { label: 'juliocrlopes4@gmail.com',        href: 'mailto:juliocrlopes4@gmail.com', icon: 'ti-mail' },
 ]
 
 // ─── Render ───────────────────────────────────────────────────────────────────
