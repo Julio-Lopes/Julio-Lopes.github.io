@@ -1,122 +1,91 @@
-const GITHUB_USER  = 'Julio-Lopes'
-const COMMITS_MOCK = '320+'
-
-const repos = [
+// ─── Dados ────────────────────────────────────────────────────────────────────
+const projetos = [
   {
-    nome:  'Ecommerce-Spring-Boot-React',
-    desc:  'E-commerce fullstack com autenticação JWT, catálogo com busca e filtro, carrinho persistente, painel admin com dashboard e e-mails transacionais.',
-    lang:  'Java',
-    cor:   '#b07219',
+    nome: 'Ecommerce-Spring-Boot-React',
+    desc: 'E-commerce fullstack com autenticação JWT, catálogo com busca e filtro, carrinho persistente, painel admin com dashboard e e-mails transacionais.',
+    lang: 'Java',
+    langCor: '#b07219',
+    tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'Docker'],
     stars: 0,
-    url:   'https://github.com/Julio-Lopes/ecommerce-spring-boot-react',
-    tags:  ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'Docker']
+    repo: 'https://github.com/Julio-Lopes/Ecommerce-Spring-Boot-React',
+    demo: '',
   },
   {
-    nome:  'Pokedex',
-    desc:  'Pokédex interativa desenvolvida com React e TypeScript para consulta de informações de Pokémon em tempo real utilizando a PokéAPI.',
-    lang:  'React/TypeScript',
-    cor:   '#3178c6',
+    nome: 'Pokedex',
+    desc: 'Pokédex interativa desenvolvida com React e TypeScript para consulta de informações de Pokémon em tempo real utilizando a PokéAPI.',
+    lang: 'React/TypeScript',
+    langCor: '#3178c6',
+    tags: ['React', 'TypeScript', 'PokéAPI'],
     stars: 0,
-    url:   'https://github.com/Julio-Lopes/Pokedex-React',
-    tags:  ['React', 'TypeScript', 'PokéAPI']
+    repo: 'https://github.com/Julio-Lopes/Pokedex-React',
+    demo: '',
   },
   {
-    nome:  'Know-Your-Fan',
-    desc:  'Plataforma de análise de fãs de eSports com integração à Twitch, IA (Gemini), OCR e dashboard de insights.',
-    lang:  'Python',
-    cor:   '#3572A5',
+    nome: 'Know-Your-Fan',
+    desc: 'Plataforma de análise de fãs de eSports com integração à Twitch, IA (Gemini), OCR e dashboard de insights.',
+    lang: 'Python',
+    langCor: '#3572A5',
+    tags: ['Python', 'Streamlit', 'Gemini', 'PostgreSQL'],
     stars: 0,
-    url:   'https://github.com/Julio-Lopes/Know-Your-Fan',
-    tags:  ['Python', 'Streamlit', 'Gemini', 'PostgreSQL'],
+    repo: 'https://github.com/Julio-Lopes/Know-Your-Fan',
+    demo: '',
   },
   {
-    nome:  'Sistema-De-Gestao-Controle-De-Gastos',
-    desc:  'Sistema web fullstack para gerenciamento de despesas pessoais e categorização de transações financeiras.',
-    lang:  'React/TypeScript',
-    cor:   '#3178c6',
+    nome: 'Sistema-De-Gestao-Controle-De-Gastos',
+    desc: 'Sistema web fullstack para gerenciamento de despesas pessoais e categorização de transações financeiras.',
+    lang: 'React/TypeScript',
+    langCor: '#3178c6',
+    tags: ['React', '.NET', 'MySQL', 'JWT'],
     stars: 0,
-    url:   'https://github.com/Julio-Lopes/Sistema-De-Gestao-Controle-De-Gastos',
-    tags:  ['React', '.NET', 'MySQL', 'JWT'],
-  }
+    repo: 'https://github.com/Julio-Lopes/Sistema-De-Gestao-Controle-De-Gastos',
+    demo: '',
+  },
 ]
 
-// ─── Busca stats na API do GitHub ──────────────────────────────────────
-async function fetchStats() {
-  try {
-    const [userRes, reposRes] = await Promise.all([
-      fetch(`https://api.github.com/users/${GITHUB_USER}`),
-      fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100`),
-    ])
-    const user      = await userRes.json()
-    const reposList = await reposRes.json()
-
-    const langs = new Set(
-      reposList.filter(r => r.language).map(r => r.language)
-    )
-
-    const elRepos  = document.querySelector('.stats__item--repos  .stats__val')
-    const elLangs  = document.querySelector('.stats__item--langs  .stats__val')
-
-    if (elRepos) elRepos.textContent = user.public_repos ?? '—'
-    if (elLangs) elLangs.textContent = langs.size || '—'
-  } catch (e) {
-    console.warn('Não foi possível carregar stats do GitHub:', e)
-  }
-}
-
 // ─── Render ───────────────────────────────────────────────────────────────────
-function renderStats() {
-  return `
-    <div class="stats">
-      <div class="stats__item stats__item--repos">
-        <span class="stats__val">…</span>
-        <span class="stats__label">REPOS</span>
-      </div>
-      <div class="stats__item stats__item--langs">
-        <span class="stats__val">…</span>
-        <span class="stats__label">LANGS</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__val">${COMMITS_MOCK}</span>
-        <span class="stats__label">COMMITS</span>
-      </div>
-    </div>
-  `
+function renderTag(tag) {
+  return `<span class="proj__tag">${tag}</span>`
 }
 
-function renderRepo(repo) {
+function renderProjeto(proj) {
+  const demoBtn = proj.demo
+    ? `<a class="proj__link proj__link--demo" href="${proj.demo}" target="_blank" rel="noopener">
+         <i class="ti ti-external-link" aria-hidden="true"></i>demo
+       </a>`
+    : ''
+
   return `
-    <a class="repo" href="${repo.url}" target="_blank" rel="noopener" aria-label="Repositório ${repo.nome}">
-      <div class="repo__header">
-        <i class="ti ti-brand-github" aria-hidden="true"></i>
-        <span class="repo__nome">${repo.nome}</span>
+    <article class="proj">
+      <div class="proj__top">
+        <a class="proj__name" href="${proj.repo}" target="_blank" rel="noopener">
+          <i class="ti ti-brand-github" aria-hidden="true"></i>${proj.nome}
+        </a>
       </div>
-      <p class="repo__desc">${repo.desc}</p>
-      <div class="repo__footer">
-        <span class="repo__lang">
-          <span class="repo__lang-dot" style="background:${repo.cor}"></span>
-          ${repo.lang}
-        </span>
-        <span class="repo__stars">
-          <i class="ti ti-star" aria-hidden="true"></i>${repo.stars}
-        </span>
+      <p class="proj__desc">${proj.desc}</p>
+      <div class="proj__lang">
+        <span class="proj__lang-dot" style="background:${proj.langCor}"></span>
+        <span class="proj__lang-name">${proj.lang}</span>
+        <span class="proj__stars"><i class="ti ti-star" aria-hidden="true"></i>${proj.stars}</span>
       </div>
-      <div class="repo__tags">
-        ${repo.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+      <div class="proj__tags">
+        ${proj.tags.map(renderTag).join('')}
       </div>
-    </a>
+      <div class="proj__actions">
+        <a class="proj__link" href="${proj.repo}" target="_blank" rel="noopener">
+          <i class="ti ti-brand-github" aria-hidden="true"></i>repositório
+        </a>
+        ${demoBtn}
+      </div>
+    </article>
   `
 }
 
 export function Projetos() {
-  setTimeout(fetchStats, 0)
-
   return `
-    <section id="projetos" class="section">
-      <h2 class="section__title">// projetos</h2>
-      ${renderStats()}
-      <div class="repo__grid">
-        ${repos.map(renderRepo).join('')}
+    <section id="projetos" class="section reveal">
+      <h2 class="section__title">projetos</h2>
+      <div class="projetos__grid">
+        ${projetos.map(renderProjeto).join('')}
       </div>
     </section>
   `

@@ -1,10 +1,10 @@
-// ─── Dados de experiência ────────────────────────────────────────────────────
+// ─── Dados ────────────────────────────────────────────────────────────────────
 const experiencias = [
   {
-    empresa:  'Backlgrs',
-    cargo:    'Desenvolvedor Frontend (Salesforce Commerce Cloud)',
-    periodo:  'Jan 2026 – Jun 2026',
-    atual:    true,
+    empresa: 'Backlgrs',
+    atual: true,
+    cargo: 'Desenvolvedor Frontend (Salesforce Commerce Cloud)',
+    periodo: 'Jan 2026 — Jun 2026',
     bullets: [
       'Desenvolvimento e evolução de interfaces de e-commerce em SFCC (PDP, PLP, Cart e Checkout).',
       'Criação de componentes reutilizáveis utilizando SFRA, ISML e Page Designer.',
@@ -15,10 +15,10 @@ const experiencias = [
     tags: ['SFCC', 'SFRA', 'ISML', 'Page Designer', 'Business Manager'],
   },
   {
-    empresa:  'CloudQi',
-    cargo:    'Full Stack Developer',
-    periodo:  'Mai 2025 – Dez 2025',
-    atual:    false,
+    empresa: 'CloudQi',
+    atual: false,
+    cargo: 'Full Stack Developer',
+    periodo: 'Mai 2025 — Dez 2025',
     bullets: [
       'Desenvolvimento de APIs REST utilizando NestJS e PHP (CodeIgniter).',
       'Implementação de regras de negócio e validações para sistemas corporativos.',
@@ -28,10 +28,10 @@ const experiencias = [
     tags: ['NestJS', 'PHP', 'PostgreSQL', 'MongoDB', 'Docker'],
   },
   {
-    empresa:  'Escritório de Contabilidade Julio Wilson',
-    cargo:    'Auxiliar de Escritório',
-    periodo:  'Jan 2015 – Mar 2022',
-    atual:    false,
+    empresa: 'Escritório de Contabilidade Julio Wilson',
+    atual: false,
+    cargo: 'Auxiliar de Escritório',
+    periodo: 'Jan 2015 — Mar 2022',
     bullets: [
       'Apoio em rotinas de Departamento Pessoal, incluindo admissões, demissões e férias.',
       'Suporte em processos fiscais e administrativos.',
@@ -41,57 +41,42 @@ const experiencias = [
   },
 ]
 
-const formacoes = [
-  { curso: 'Pós-graduação em Engenharia da Computação', instituicao: 'Uninter', periodo: 'Out 2025 – Abr 2026' },
-  { curso: 'MBA em Gestão da Tecnologia da Informação',  instituicao: 'Uninter', periodo: 'Fev 2025 – Out 2025' },
-  { curso: 'Análise e Desenvolvimento de Sistemas',      instituicao: 'Uninter', periodo: 'Jul 2022 – Nov 2024' },
-]
-
 // ─── Render ───────────────────────────────────────────────────────────────────
-function renderExperiencia(exp) {
-  const badge = exp.atual
-    ? `<span class="exp__badge exp__badge--atual">atual</span>`
-    : ''
-
-  return `
-    <article class="exp__item">
-      <div class="exp__header">
-        <div>
-          <h3 class="exp__empresa">${exp.empresa} ${badge}</h3>
-          <p class="exp__cargo">${exp.cargo}</p>
-          <p class="exp__periodo">${exp.periodo}</p>
-        </div>
-      </div>
-      <ul class="exp__bullets">
-        ${exp.bullets.map(b => `<li>${b}</li>`).join('')}
-      </ul>
-      <div class="exp__tags">
-        ${exp.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-      </div>
-    </article>
-  `
+function renderBullet(texto) {
+  return `<li>${texto}</li>`
 }
 
-function renderFormacao(f) {
+function renderTag(tag) {
+  return `<span class="exp__tag">${tag}</span>`
+}
+
+function renderExperiencia(exp) {
+  const classe = exp.atual ? 'exp__item exp__item--current' : 'exp__item'
+  const badge = exp.atual ? '<span class="exp__badge">atual</span>' : ''
   return `
-    <article class="formacao__item">
-      <h4 class="formacao__curso">${f.curso}</h4>
-      <p class="formacao__inst">${f.instituicao} · ${f.periodo}</p>
+    <article class="${classe}">
+      <div class="exp__top">
+        <span class="exp__company">${exp.empresa}</span>
+        ${badge}
+      </div>
+      <p class="exp__role">${exp.cargo}</p>
+      <p class="exp__date">${exp.periodo}</p>
+      <ul class="exp__bullets">
+        ${exp.bullets.map(renderBullet).join('')}
+      </ul>
+      <div class="exp__tags">
+        ${exp.tags.map(renderTag).join('')}
+      </div>
     </article>
   `
 }
 
 export function Experiencia() {
   return `
-    <section id="experiencia" class="section">
-      <h2 class="section__title">// experiência</h2>
+    <section id="experiencia" class="section reveal">
+      <h2 class="section__title">experiência</h2>
       <div class="exp__list">
         ${experiencias.map(renderExperiencia).join('')}
-      </div>
-
-      <h2 class="section__title" style="margin-top: 2.5rem;">// formação</h2>
-      <div class="formacao__list">
-        ${formacoes.map(renderFormacao).join('')}
       </div>
     </section>
   `

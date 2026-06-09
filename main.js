@@ -1,40 +1,67 @@
-import { Sidebar }      from './components/sidebar.js'
-import { Sobre }         from './components/sobre.js'
-import { Experiencia }   from './components/experiencia.js'
-import { Projetos }      from './components/projetos.js'
-import { Certificacoes } from './components/certificacoes.js'
-import { Contato }       from './components/contato.js'
+// ─── Componentes ──────────────────────────────────────────────────────────────
+import { Nav }                from './components/nav.js'
+import { Hero }               from './components/hero.js'
+import { Resumo, carregarStatsGitHub } from './components/resumo.js'
+import { Sobre }              from './components/sobre.js'
+import { Stack }              from './components/stack.js'
+import { Experiencia }        from './components/experiencia.js'
+import { Formacao }           from './components/formacao.js'
+import { Projetos }           from './components/projetos.js'
+import { Certificacoes }      from './components/certificacoes.js'
+import { Contato }            from './components/contato.js'
 
-// ─── Monta o HTML ─────────────────────────────────────────────────────────────
-document.getElementById('sidebar').innerHTML  = Sidebar()
-document.getElementById('conteudo').innerHTML =
-  Sobre() + Experiencia() + Projetos() + Certificacoes() + Contato()
+// ─── Footer ─────────────────────────────────────────────────────────────────── 
+function Footer() {
+  const ano = new Date().getFullYear()
+  return `
+    <footer class="footer">
+      <p>© ${ano} julio cesar lopes</p>
+    </footer>
+  `
+}
 
-// ─── Navegação ativa no scroll ────────────────────────────────────────────────
-const sections = document.querySelectorAll('.section')
-const navItems = document.querySelectorAll('.nav-item')
+// ─── Montagem ───────────────────────────────────────────────────────────────── 
+function App() {
+  return [
+    Nav(),
+    Hero(),
+    `<main class="shell">`,
+      Resumo(),
+      Sobre(),
+      Stack(),
+      Experiencia(),
+      Formacao(),
+      Projetos(),
+      Certificacoes(),
+      Contato(),
+    `</main>`,
+    Footer(),
+  ].join('')
+}
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id
-        navItems.forEach(item => {
-          item.classList.toggle('active', item.dataset.section === id)
-        })
-      }
-    })
-  },
-  { threshold: 0.35 }
-)
+const app = document.getElementById('app')
+app.innerHTML = App()
 
-sections.forEach(s => observer.observe(s))
+// Busca os stats
+carregarStatsGitHub()
 
-// ─── Scroll suave nos links da nav ───────────────────────────────────────────
-document.addEventListener('click', e => {
-  const link = e.target.closest('.nav-item')
-  if (!link) return
-  e.preventDefault()
-  const target = document.querySelector(link.getAttribute('href'))
-  if (target) target.scrollIntoView({ behavior: 'smooth' })
-})
+// ─── Animação ─────────────────────────────────────
+function ativarReveal() {
+  const alvos = document.querySelectorAll('.reveal')
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          obs.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+  )
+
+  alvos.forEach((el) => observer.observe(el))
+}
+
+ativarReveal()

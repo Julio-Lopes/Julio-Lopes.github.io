@@ -29,8 +29,8 @@ function renderCert(cert) {
 
 export function Certificacoes() {
   return `
-    <section id="certificacoes" class="section">
-      <h2 class="section__title">// certificações</h2>
+    <section id="certificacoes" class="section reveal">
+      <h2 class="section__title">certificações</h2>
       <div class="cert__list">
         ${certificacoes.map(renderCert).join('')}
       </div>
