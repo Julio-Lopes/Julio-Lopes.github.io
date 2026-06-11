@@ -1,11 +1,10 @@
-// ─── Dados ────────────────────────────────────────────────────────────────────
 const perfil = {
-  nome: 'Julio Cesar',
+  eyebrow:   'Frontend Developer',
+  nome:      'Julio Cesar',
   sobrenome: 'RIBEIRO LOPES',
-  tags: ['Frontend Developer', 'Salesforce Commerce Cloud', 'React', 'TypeScript'],
+  tags:      ['Frontend Developer', 'Salesforce Commerce Cloud', 'React', 'Next.js', 'TypeScript'],
 }
 
-// posições aleatórias das estrelas (top%, left%, delay s, tamanho px)
 const estrelas = [
   { top: 18, left: 20, delay: 0,   size: 2 },
   { top: 34, left: 72, delay: 0.6, size: 2 },
@@ -15,28 +14,30 @@ const estrelas = [
   { top: 28, left: 88, delay: 1.4, size: 2 },
   { top: 40, left: 12, delay: 0.5, size: 2 },
   { top: 22, left: 44, delay: 1.7, size: 3 },
+  { top: 65, left: 60, delay: 0.8, size: 2 },
+  { top: 10, left: 80, delay: 2.1, size: 2 },
 ]
-
-// ─── Render ───────────────────────────────────────────────────────────────────
-function renderEstrela(s) {
-  return `<span class="hero__star" style="top:${s.top}%;left:${s.left}%;width:${s.size}px;height:${s.size}px;animation-delay:${s.delay}s"></span>`
-}
-
-function renderTag(tag) {
-  return `<span class="hero__tag">${tag}</span>`
-}
 
 export function Hero() {
   return `
     <header class="hero">
-      <div class="hero__glow"></div>
-      ${estrelas.map(renderEstrela).join('')}
       <div class="hero__floor"></div>
-      <h1 class="hero__name">${perfil.nome}</h1>
+      ${estrelas.map(s =>
+        `<span style="position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(200,210,255,0.8);width:${s.size}px;height:${s.size}px;top:${s.top}%;left:${s.left}%;animation:starBlink 2s ${s.delay}s ease-in-out infinite alternate;"></span>`
+      ).join('')}
+      <p class="hero__eyebrow">${perfil.eyebrow}</p>
+      <h1 class="hero__name"><span class="glow-text">${perfil.nome}</span></h1>
       <p class="hero__sub">${perfil.sobrenome}</p>
       <div class="hero__tags">
-        ${perfil.tags.map(renderTag).join('')}
+        ${perfil.tags.map(t => `<span class="hero__tag">${t}</span>`).join('')}
       </div>
+      <div class="hero__scroll">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+      <style>
+        @keyframes starBlink { from { opacity: 0.2; } to { opacity: 1; } }
+      </style>
     </header>
   `
 }

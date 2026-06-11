@@ -1,9 +1,7 @@
-// ─── Dados ────────────────────────────────────────────────────────────────────
 const experiencias = [
   {
-    empresa: 'Backlgrs',
-    atual: true,
-    cargo: 'Desenvolvedor Frontend (Salesforce Commerce Cloud)',
+    empresa: 'Backlgrs', atual: true,
+    cargo:   'Desenvolvedor Frontend — Salesforce Commerce Cloud',
     periodo: 'Jan 2026 — Jun 2026',
     bullets: [
       'Desenvolvimento e evolução de interfaces de e-commerce em SFCC (PDP, PLP, Cart e Checkout).',
@@ -15,9 +13,8 @@ const experiencias = [
     tags: ['SFCC', 'SFRA', 'ISML', 'Page Designer', 'Business Manager'],
   },
   {
-    empresa: 'CloudQi',
-    atual: false,
-    cargo: 'Full Stack Developer',
+    empresa: 'CloudQi', atual: false,
+    cargo:   'Full Stack Developer',
     periodo: 'Mai 2025 — Dez 2025',
     bullets: [
       'Desenvolvimento de APIs REST utilizando NestJS e PHP (CodeIgniter).',
@@ -28,9 +25,8 @@ const experiencias = [
     tags: ['NestJS', 'PHP', 'PostgreSQL', 'MongoDB', 'Docker'],
   },
   {
-    empresa: 'Escritório de Contabilidade Julio Wilson',
-    atual: false,
-    cargo: 'Auxiliar de Escritório',
+    empresa: 'Escritório de Contabilidade Julio Wilson', atual: false,
+    cargo:   'Auxiliar de Escritório',
     periodo: 'Jan 2015 — Mar 2022',
     bullets: [
       'Apoio em rotinas de Departamento Pessoal, incluindo admissões, demissões e férias.',
@@ -41,42 +37,27 @@ const experiencias = [
   },
 ]
 
-// ─── Render ───────────────────────────────────────────────────────────────────
-function renderBullet(texto) {
-  return `<li>${texto}</li>`
-}
-
-function renderTag(tag) {
-  return `<span class="exp__tag">${tag}</span>`
-}
-
-function renderExperiencia(exp) {
-  const classe = exp.atual ? 'exp__item exp__item--current' : 'exp__item'
-  const badge = exp.atual ? '<span class="exp__badge">atual</span>' : ''
-  return `
-    <article class="${classe}">
-      <div class="exp__top">
-        <span class="exp__company">${exp.empresa}</span>
-        ${badge}
-      </div>
-      <p class="exp__role">${exp.cargo}</p>
-      <p class="exp__date">${exp.periodo}</p>
-      <ul class="exp__bullets">
-        ${exp.bullets.map(renderBullet).join('')}
-      </ul>
-      <div class="exp__tags">
-        ${exp.tags.map(renderTag).join('')}
-      </div>
-    </article>
-  `
-}
-
 export function Experiencia() {
   return `
     <section id="experiencia" class="section reveal">
       <h2 class="section__title">experiência</h2>
       <div class="exp__list">
-        ${experiencias.map(renderExperiencia).join('')}
+        ${experiencias.map(exp => `
+          <article class="exp__item ${exp.atual ? 'exp__item--current' : ''}">
+            <div class="exp__top">
+              <span class="exp__company">${exp.empresa}</span>
+              ${exp.atual ? '<span class="exp__badge">atual</span>' : ''}
+            </div>
+            <p class="exp__role">${exp.cargo}</p>
+            <p class="exp__date">${exp.periodo}</p>
+            <ul class="exp__bullets">
+              ${exp.bullets.map(b => `<li>${b}</li>`).join('')}
+            </ul>
+            <div class="exp__tags">
+              ${exp.tags.map(t => `<span class="exp__tag">${t}</span>`).join('')}
+            </div>
+          </article>
+        `).join('')}
       </div>
     </section>
   `

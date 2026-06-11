@@ -1,5 +1,5 @@
-// ─── Dados ────────────────────────────────────────────────────────────────────
 const links = [
+  { label: 'resumo',      href: '#resumo' },
   { label: 'sobre',       href: '#sobre' },
   { label: 'stack',       href: '#stack' },
   { label: 'experiência', href: '#experiencia' },
@@ -8,14 +8,19 @@ const links = [
   { label: 'contato',     href: '#contato' },
 ]
 
-// ─── Render ───────────────────────────────────────────────────────────────────
 export function Nav() {
   return `
     <nav class="nav">
       <span class="nav__logo">~/julio-lopes</span>
       <div class="nav__links">
-        ${links.map((l) => `<a href="${l.href}">${l.label}</a>`).join('')}
+        ${links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
       </div>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+    <div class="nav__mobile">
+      ${links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+    </div>
   `
 }
