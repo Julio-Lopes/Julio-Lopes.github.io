@@ -9,6 +9,15 @@ const projetos = [
     demo:  '',
   },
   {
+    emoji: '🎮', badge: 'Java',
+    thumb: 'linear-gradient(135deg,#080d28,rgba(185,139,255,0.25))',
+    nome:  'Social-Gaming-Spring-Boot-React',
+    desc:  'Rede social para gamers com feed, catálogo de jogos via RAWG, comunidades com chat em tempo real (WebSocket + Redis), recomendações por gênero, rankings e integração com Twitch.',
+    tags:  ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker'],
+    repo:  'https://github.com/Julio-Lopes/social-gaming-spring-boot-react',
+    demo:  '',
+  },
+  {
     emoji: '', badge: 'React / TS',
     thumb: "url('./assets/eevee.gif') center/contain no-repeat, linear-gradient(135deg,#080d28,rgba(49,120,198,0.25))",
     nome:  'Pokedex',
@@ -36,7 +45,6 @@ const projetos = [
     demo:  '',
   },
 ]
-
 export function Projetos() {
   return `
     <section id="projetos" class="section reveal">
