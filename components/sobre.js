@@ -23,7 +23,7 @@ export function Sobre() {
           <div class="code-body">
             <div><span class="ln">1</span><span class="kw">const</span> <span class="fn">developer</span> <span class="punct">= {</span></div>
             <div><span class="ln">2</span>&nbsp;&nbsp;<span class="prop">name</span><span class="punct">:</span> <span class="str">'Julio Cesar'</span><span class="punct">,</span></div>
-            <div><span class="ln">3</span>&nbsp;&nbsp;<span class="prop">role</span><span class="punct">:</span> <span class="str">'Frontend Engineer'</span><span class="punct">,</span></div>
+            <div><span class="ln">3</span>&nbsp;&nbsp;<span class="prop">role</span><span class="punct">:</span> <span class="str">'Full Stack Engineer'</span><span class="punct">,</span></div>
             <div><span class="ln">4</span>&nbsp;&nbsp;<span class="prop">company</span><span class="punct">:</span> <span class="str">'Backlgrs'</span><span class="punct">,</span></div>
             <div><span class="ln">5</span>&nbsp;&nbsp;<span class="prop">stack</span><span class="punct">: [</span></div>
             <div><span class="ln">6</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'React'</span><span class="punct">,</span> <span class="str">'Next.js'</span><span class="punct">,</span></div>
