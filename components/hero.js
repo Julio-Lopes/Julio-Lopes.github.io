@@ -1,8 +1,8 @@
 const perfil = {
-  eyebrow:   'Frontend Developer',
+  eyebrow:   'Full Stack Developer',
   nome:      'Julio Cesar',
   sobrenome: 'RIBEIRO LOPES',
-  tags:      ['Frontend Developer', 'Salesforce Commerce Cloud', 'React', 'Next.js', 'TypeScript'],
+  tags:      ['Full Stack Developer', 'Salesforce Commerce Cloud', 'React', 'Next.js', 'TypeScript', 'Java', 'Spring'],
 }
 
 const estrelas = [
