@@ -1,8 +1,8 @@
 const paragrafos = [
-  `Desenvolvedor <strong>Frontend</strong> com experiência no desenvolvimento de soluções para e-commerce, atuando com <strong>React, Next.js, TypeScript, JavaScript, HTML, CSS</strong> e <strong>Salesforce Commerce Cloud (SFCC)</strong>.`,
-  `Tenho experiência na construção de interfaces modernas, responsivas e acessíveis, transformação de layouts do <strong>Figma</strong> em aplicações funcionais, criação de componentes reutilizáveis e integração com <strong>APIs REST</strong>.`,
-  `Ao longo da minha trajetória, participei do desenvolvimento e evolução de plataformas de e-commerce, contribuindo para a performance, usabilidade e manutenção de aplicações voltadas à experiência do usuário.`,
-  `Também possuo experiência em desenvolvimento backend com <strong>Java (Spring Boot)</strong> e PHP, além de conhecimentos em computação em nuvem e ambientes multi-cloud.`,
+  `Desenvolvedor <strong>Full Stack</strong>, com experiência em front-end (<strong>React, Next.js, TypeScript</strong>) e back-end (<strong>Java, Spring Boot</strong>), incluindo vivência prática em soluções de e-commerce com <strong>Salesforce Commerce Cloud (SFCC)</strong>.`,
+  `No front-end, construo interfaces modernas, responsivas e acessíveis, com transformação de layouts do <strong>Figma</strong> em aplicações funcionais, criação de componentes reutilizáveis e integração com <strong>APIs REST</strong>.`,
+  `No back-end, desenvolvo APIs REST com <strong>Java e Spring Boot</strong>, modelagem e persistência de dados, autenticação e testes unitários, aplicando boas práticas de arquitetura e código limpo.`,
+  `Ao longo da minha trajetória, participei do desenvolvimento e evolução de plataformas de e-commerce, contribuindo para performance, usabilidade e manutenção de aplicações voltadas à experiência do usuário, e venho me aprofundando em desenvolvimento back-end para atuar de forma mais completa no ciclo full stack.`,
 ]
 
 export function Sobre() {
